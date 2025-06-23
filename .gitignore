@@ -1,0 +1,30 @@
+# Entornos virtuales
+nuevo_venv/
+venv/
+env/
+
+# Modelos entrenados (muy grandes)
+*.h5
+*.pkl
+*.joblib
+modelo_mlp.pkl
+modelo_entrenado.*
+
+# TensorFlow/Keras
+__pycache__/
+*.pyc
+*.pyo
+
+# Datasets grandes
+dataset/
+datos/
+*.csv
+*.json
+
+# Archivos de sistema
+.DS_Store
+*.log
+
+# Archivos temporales
+temp/
+temporal/
