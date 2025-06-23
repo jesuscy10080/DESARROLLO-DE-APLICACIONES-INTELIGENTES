@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Virtual - Versión Simplificada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .video-section {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .info-section {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .camera-controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        .video-container {
+            position: relative;
+            text-align: center;
+        }
+
+        #originalVideo, #processedVideo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #4CAF50;
+        }
+
+        #processedVideo {
+            display: none;
+        }
+
+        .octave-controls {
+            margin: 20px 0;
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            border-radius: 5px;
+        }
+
+        .octave-display {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #4CAF50;
+        }
+
+        .status {
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background: #333;
+        }
+
+        .hands-info, .pressed-keys-info {
+            margin: 20px 0;
+            padding: 15px;
+            background: #333;
+            border-radius: 5px;
+        }
+
+        .hand-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+
+        .landmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .landmark {
+            font-size: 12px;
+            padding: 5px;
+            background: #555;
+            border-radius: 3px;
+        }
+
+        .pressed-key {
+            padding: 8px;
+            margin: 5px 0;
+            background: #4CAF50;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: #444;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .instructions h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin: 5px 0;
+        }
+
+        #stats {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎹 Piano Virtual - Versión Simplificada</h1>
+        
+        <div class="main-content">
+            <!-- Sección de Video -->
+            <div class="video-section">
+                <div class="camera-controls">
+                    <button id="startCamera">📹 Iniciar Cámara</button>
+                    <button id="stopCamera" disabled>⏹️ Detener Cámara</button>
+                </div>
+                
+                <div class="video-container">
+                    <video id="originalVideo" autoplay muted></video>
+                    <img id="processedVideo" alt="Video procesado">
+                </div>
+                
+                <div class="octave-controls">
+                    <h3>Control de Octavas</h3>
+                    <button id="prevOctave">← Anterior</button>
+                    <span class="octave-display">Octava: <span id="currentOctave">4</span></span>
+                    <button id="nextOctave">Siguiente →</button>
+                </div>
+                
+                <div class="status" id="status">Desconectado</div>
+            </div>
+            
+            <!-- Sección de Información -->
+            <div class="info-section">
+                <div class="instructions">
+                    <h3>📖 Instrucciones</h3>
+                    <ul>
+                        <li>🎥 Presiona "Iniciar Cámara" para comenzar</li>
+                        <li>🖐️ Coloca tus manos frente a la cámara</li>
+                        <li>👆 Dobla cualquier dedo sobre una tecla del teclado virtual</li>
+                        <li>🎵 Escucha la nota correspondiente</li>
+                        <li>🎹 Usa los botones para cambiar octavas</li>
+                        <li>✋ Puedes usar varios dedos para tocar acordes</li>
+                    </ul>
+                </div>
+                
+                <div class="hands-info" id="handsInfo">
+                    <h3>👋 Información de Manos</h3>
+                    <p>No se detectan manos</p>
+                </div>
+                
+                <div class="pressed-keys-info" id="pressedKeysInfo">
+                    <h3>🎵 Teclas Presionadas</h3>
+                    <p>Ninguna tecla presionada</p>
+                </div>
+                
+                <div id="stats">
+                    <p>Frames procesados: 0</p>
+                    <p>FPS objetivo: 15</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    
+    <script>
+        // Camera.js integrado - versión simplificada
+        let stream = null;
+        let isProcessing = false;
+        
+        const originalVideo = document.getElementById('originalVideo');
+        const processedVideo = document.getElementById('processedVideo');
+        const startButton = document.getElementById('startCamera');
+        const stopButton = document.getElementById('stopCamera');
+        
+        // Canvas oculto para capturar frames
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { width: 640, height: 480 } 
+                });
+                
+                originalVideo.srcObject = stream;
+                
+                // Configurar canvas
+                originalVideo.addEventListener('loadedmetadata', () => {
+                    canvas.width = originalVideo.videoWidth;
+                    canvas.height = originalVideo.videoHeight;
+                    
+                    // Comenzar procesamiento
+                    isProcessing = true;
+                    window.setFrameProcessing(true);
+                    processFrames();
+                    
+                    // Mostrar video procesado
+                    originalVideo.style.display = 'none';
+                    processedVideo.style.display = 'block';
+                });
+                
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                
+                console.log('✅ Cámara iniciada');
+                
+            } catch (error) {
+                console.error('❌ Error iniciando cámara:', error);
+                alert('Error al acceder a la cámara. Verifica los permisos.');
+            }
+        }
+        
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            
+            isProcessing = false;
+            window.setFrameProcessing(false);
+            
+            originalVideo.style.display = 'block';
+            processedVideo.style.display = 'none';
+            originalVideo.srcObject = null;
+            processedVideo.src = '';
+            
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            
+            console.log('⏹️ Cámara detenida');
+        }
+        
+        function processFrames() {
+            if (!isProcessing) return;
+            
+            // Capturar frame del video
+            ctx.drawImage(originalVideo, 0, 0, canvas.width, canvas.height);
+            
+            // Enviar al servidor
+            window.sendFrameToServer(canvas);
+            
+            // Continuar procesamiento
+            requestAnimationFrame(processFrames);
+        }
+        
+        // Event listeners
+        startButton.addEventListener('click', startCamera);
+        stopButton.addEventListener('click', stopCamera);
+        
+        // Configurar funciones globales
+        window.setFrameProcessing = function(active) {
+            console.log('Frame processing:', active ? 'ACTIVADO' : 'DESACTIVADO');
+        };
+        
+        window.sendFrameToServer = function(canvas) {
+            // Esta función se sobrescribirá en socket.js
+            console.log('Enviando frame...');
+        };
+    </script>
+    
+    <script>
+        // Socket.js integrado - versión simplificada
+        const socket = io();
+        
+        let frameProcessingActive = false;
+        let lastFrameTime = 0;
+        const targetFPS = 15;
+        
+        // Conexión socket
+        socket.on('connect', function() {
+            console.log('🔗 Conectado al servidor');
+            document.getElementById('status').textContent = 'Conectado';
+        });
+        
+        socket.on('disconnect', function() {
+            console.log('❌ Desconectado del servidor');
+            document.getElementById('status').textContent = 'Desconectado';
+        });
+        
+        // Procesar respuesta del servidor
+        socket.on('frame_processed', function(data) {
+            try {
+                // Mostrar imagen procesada
+                const processedVideo = document.getElementById('processedVideo');
+                if (processedVideo && data.image) {
+                    processedVideo.src = data.image;
+                }
+                
+                // Actualizar información de manos
+                updateHandsInfo(data.hands || []);
+                
+                // Actualizar teclas presionadas
+                updatePressedKeys(data.pressed_keys || []);
+                
+                // Actualizar octava
+                if (data.octava_actual) {
+                    document.getElementById('currentOctave').textContent = data.octava_actual;
+                }
+                
+                // Stats
+                const statsElement = document.getElementById('stats');
+                if (statsElement) {
+                    statsElement.innerHTML = `
+                        <p>Frames procesados: ${data.frame_count || 0}</p>
+                        <p>FPS objetivo: ${targetFPS}</p>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Error procesando respuesta:', error);
+            }
+        });
+        
+        socket.on('error', function(data) {
+            console.error('Error del servidor:', data.message);
+            document.getElementById('status').textContent = 'Error: ' + data.message;
+        });
+        
+        // Función para enviar frame al servidor
+        window.sendFrameToServer = function(canvas) {
+            if (!frameProcessingActive) return;
+            
+            // Control de FPS
+            const now = Date.now();
+            if (now - lastFrameTime < 1000 / targetFPS) {
+                return;
+            }
+            lastFrameTime = now;
+            
+            try {
+                const imageData = canvas.toDataURL('image/jpeg', 0.8);
+                socket.emit('process_frame', {
+                    image: imageData,
+                    timestamp: now
+                });
+            } catch (error) {
+                console.error('Error enviando frame:', error);
+            }
+        };
+        
+        // Sobrescribir función de control de procesamiento
+        window.setFrameProcessing = function(active) {
+            frameProcessingActive = active;
+            console.log('Frame processing:', active ? 'ACTIVADO' : 'DESACTIVADO');
+        };
+        
+        // Actualizar información de manos
+        function updateHandsInfo(hands) {
+            const handsInfo = document.getElementById('handsInfo');
+            if (!handsInfo) return;
+            
+            if (hands.length === 0) {
+                handsInfo.innerHTML = '<h3>👋 Información de Manos</h3><p>No se detectan manos</p>';
+                return;
+            }
+            
+            let html = '<h3>👋 Información de Manos</h3>';
+            hands.forEach((hand, index) => {
+                html += `
+                    <div class="hand-info">
+                        <h4>Mano ${hand.hand_label}</h4>
+                        <div class="landmarks-grid">
+                `;
+                
+                // Mostrar solo landmarks importantes
+                const importantLandmarks = [0, 4, 8, 12, 16, 20]; // Muñeca y puntas de dedos
+                const landmarkNames = ['Muñeca', 'Pulgar', 'Índice', 'Medio', 'Anular', 'Meñique'];
+                
+                importantLandmarks.forEach((idx, i) => {
+                    const landmark = hand.landmarks[idx];
+                    if (landmark) {
+                        html += `
+                            <div class="landmark">
+                                <strong>${landmarkNames[i]}:</strong>
+                                (${landmark.x.toFixed(3)}, ${landmark.y.toFixed(3)})
+                            </div>
+                        `;
+                    }
+                });
+                
+                html += '</div></div>';
+            });
+            
+            handsInfo.innerHTML = html;
+        }
+        
+        // Actualizar teclas presionadas
+        function updatePressedKeys(pressedKeys) {
+            const pressedKeysInfo = document.getElementById('pressedKeysInfo');
+            if (!pressedKeysInfo) return;
+            
+            if (pressedKeys.length === 0) {
+                pressedKeysInfo.innerHTML = '<h3>🎵 Teclas Presionadas</h3><p>Ninguna tecla presionada</p>';
+                return;
+            }
+            
+            let html = '<h3>🎵 Teclas Presionadas</h3>';
+            pressedKeys.forEach(key => {
+                html += `
+                    <div class="pressed-key">
+                        🎵 ${key.finger}: <strong>${key.nota}${key.octava}</strong>
+                    </div>
+                `;
+            });
+            
+            pressedKeysInfo.innerHTML = html;
+        }
+        
+        // Funciones para cambiar octava
+        function changeOctave(direction) {
+            fetch('/api/change_octave', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ direction: direction })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('currentOctave').textContent = data.octava_actual;
+                console.log(`Octava cambiada a: ${data.octava_actual}`);
+            })
+            .catch(error => {
+                console.error('Error cambiando octava:', error);
+            });
+        }
+        
+        // Configurar botones de octava
+        document.getElementById('prevOctave').addEventListener('click', () => changeOctave('prev'));
+        document.getElementById('nextOctave').addEventListener('click', () => changeOctave('next'));
+        
+        console.log('🎹 Sistema inicializado');
+    </script>
+</body>
+</html>

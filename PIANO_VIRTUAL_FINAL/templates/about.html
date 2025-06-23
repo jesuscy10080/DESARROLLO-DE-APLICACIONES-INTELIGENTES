@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca del Piano Virtual Invisible</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Piano Virtual Invisible</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('about') }}">Acerca de</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="piano-container">
+            <h2>Acerca del Piano Virtual Invisible</h2>
+            
+            <div class="about-section">
+                <h3>¿Qué es?</h3>
+                <p>El Piano Virtual Invisible es una aplicación interactiva que utiliza visión por computadora para detectar gestos de las manos y convertirlos en notas musicales, sin necesidad de un piano físico.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Tecnologías utilizadas</h3>
+                <ul>
+                    <li><strong>Python</strong> - Lenguaje principal</li>
+                    <li><strong>Flask</strong> - Framework web</li>
+                    <li><strong>WebSockets</strong> - Comunicación en tiempo real</li>
+                    <li><strong>MediaPipe</strong> - Detección de puntos de referencia de las manos</li>
+                    <li><strong>TensorFlow</strong> - Modelos de aprendizaje automático</li>
+                    <li><strong>OpenCV</strong> - Procesamiento de imágenes</li>
+                    <li><strong>Pygame</strong> - Reproducción de audio</li>
+                </ul>
+            </div>
+            
+            <div class="about-section">
+                <h3>Cómo funciona</h3>
+                <ol>
+                    <li>La cámara captura el video en tiempo real</li>
+                    <li>MediaPipe detecta los puntos de referencia de la mano</li>
+                    <li>El algoritmo determina si el dedo índice está doblado para tocar una nota</li>
+                    <li>La posición del dedo determina qué nota se toca</li>
+                    <li>El sonido correspondiente se reproduce</li>
+                </ol>
+            </div>
+            
+            <div class="about-section">
+                <h3>Características</h3>
+                <ul>
+                    <li>Rango de 5 octavas (DO2 - SI6)</li>
+                    <li>Navegación entre octavas mediante gestos</li>
+                    <li>Interfaz visual del teclado</li>
+                    <li>Detección de manos en tiempo real</li>
+                    <li>Reproduce sonidos de piano reales</li>
+                </ul>
+            </div>
+            
+            <div class="back-button">
+                <a href="{{ url_for('index') }}" class="btn primary">Volver al Piano</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Piano Virtual Invisible &copy; 2025</p>
+    </footer>
+</body>
+</html>
