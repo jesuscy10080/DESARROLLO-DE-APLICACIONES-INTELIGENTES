@@ -4,7 +4,7 @@
 
 ![Piano Virtual Banner](https://img.shields.io/badge/Piano_Virtual-MEJORADO-blue?style=for-the-badge&logo=music)
 
-**Sistema Inteligente de Piano Virtual con Reconocimiento de Gestos mediante Visión por Computadora**
+**Software Inteligente de Piano Virtual con Reconocimiento de Gestos mediante Visión por Computadora**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-yellow?style=flat-square&logo=python)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-2.3.3-green?style=flat-square&logo=flask)](https://flask.palletsprojects.com/)
@@ -16,31 +16,8 @@
 
 ---
 
-## 📋 INFORMACIÓN ACADÉMICA
 
-### 🎓 **Datos Institucionales**
-- **Universidad:** [Nombre de la Universidad]
-- **Carrera:** Ingeniería de Sistemas / Ciencias de la Computación
-- **Curso:** Visión por Computadora / Inteligencia Artificial
-- **Semestre:** [Semestre/Año Académico]
-- **Fecha de Presentación:** 18 de junio de 2025
-
-### 👨‍🎓 **Estudiantes Autores**
-| Nombre Completo | Código Estudiantil | Email Académico |
-|-----------------|-------------------|------------------|
-| **Quispe Jesús Cinthia** | [Código] | cinthia.quispe@[universidad].edu |
-| **Carlos Walter Pacheco Lora** | [Código] | carlos.pacheco@[universidad].edu |
-
-### 📚 **Docente Supervisor**
-- **Nombre:** [Nombre del Docente]
-- **Cátedra:** [Materia/Curso]
-- **Email:** [email.docente@universidad.edu]
-
----
-
-## 🎯 RESUMEN EJECUTIVO
-
-Este proyecto presenta el desarrollo exitoso de un **Teclado Musical Virtual Invisible** que permite interpretar música mediante gestos naturales de las manos, capturados por una cámara web estándar. El sistema integra tecnologías de **visión por computadora**, **inteligencia artificial** y **síntesis de audio en tiempo real** para crear una interfaz musical innovadora y accesible.
+Este proyecto presenta el desarrollo exitoso de un **Piano  Virtual** que permite interpretar música mediante gestos naturales de las manos, capturados por una cámara web estándar. El software integra tecnologías de **visión por computadora**, **inteligencia artificial** y **síntesis de audio en tiempo real** para crear una interfaz musical innovadora y accesible.
 
 ### 🏆 **Logros Principales**
 - ✅ **96.8% de precisión** en reconocimiento de gestos musicales
@@ -350,17 +327,14 @@ piano_virtual/                    # 📂 Directorio raíz
 │   ├── styles/
 │   │   └── style.css          # 🎨 Estilos CSS principales
 │   ├── scripts/
-│   │   ├── main.js            # 🎮 Lógica principal cliente
-│   │   ├── camera.js          # 📹 Gestión modular cámara
-│   │   ├── socket.js          # 📡 Comunicación WebSocket
-│   │   ├── piano.js           # 🎹 Funciones específicas piano
-│   │   └── gesture.js         # ✋ Análisis gestos cliente
-│   └── assets/
-│       ├── images/            # 🖼️ Imágenes del proyecto
-│       ├── icons/             # 🔮 Iconos de interfaz
-│       └── demo/              # 🎬 Videos demostración
+│      ├── main.js            # 🎮 Lógica principal cliente
+│      ├── camera.js          # 📹 Gestión modular cámara
+│      ├── socket.js          # 📡 Comunicación WebSocket
+│      ├── piano.js           # 🎹 Funciones específicas piano
+│      └── gesture.js         # ✋ Análisis gestos cliente
+│   
 │
-├── 🎶 SONIDOS/ (Audio Assets)
+├── 🎶 DATASET/ (Audio Assets)
 │   ├── octava2/              # 🎵 Notas graves
 │   │   ├── DO2.wav           # 🎼 Archivos WAV 44.1kHz
 │   │   ├── DOS2.wav          # 🎼 Formato: {NOTA}{OCTAVA}.wav
@@ -378,16 +352,12 @@ piano_virtual/                    # 📂 Directorio raíz
 │   └── evaluation/            # 📈 Métricas y validación
 │
 ├── 📊 DOCS/ (Documentación Académica)
-│   ├── articulo_cientifico.pdf # 📄 Paper completo
-│   ├── presentacion.pptx      # 📑 Slides de presentación
-│   ├── demo_video.mp4         # 🎬 Video demostración
-│   └── metodologia.md         # 🔬 Detalles metodológicos
-│
-└── 🧪 TESTS/ (Pruebas y Validación)
-    ├── test_gestures.py       # ✅ Tests unitarios gestos
-    ├── test_audio.py          # ✅ Tests sistema audio
-    ├── test_integration.py    # ✅ Tests integración
-    └── performance_tests/     # 📊 Benchmarks rendimiento
+   ├── articulo_cientifico.pdf # 📄 Paper completo
+   ├── presentacion.pptx      # 📑 Slides de presentación
+   ├── demo_video.mp4         # 🎬 Video demostración
+   └── metodologia.md         # 🔬 Detalles metodológicos
+
+
 ```
 
 ### 📝 **Descripción Detallada de Archivos Críticos**
@@ -880,68 +850,6 @@ Funcionales:
   - Exportación MIDI para producción musical
 ```
 
-#### **🏢 Aplicaciones Comerciales**
-```yaml
-Mercados Potenciales:
-  - Escuelas de música y conservatorios
-  - Centros de terapia y rehabilitación
-  - Museos interactivos y centros de ciencia
-  - Plataformas de e-learning musical
-  - Industria del entretenimiento digital
-```
-
----
-
-## 🔒 ASPECTOS ÉTICOS Y LEGALES
-
-### 📄 **Declaratoria de Autoría**
-
-#### **🖋️ Certificación de Originalidad**
-```
-Nosotros, Quispe Jesús Cinthia y Carlos Walter Pacheco Lora, 
-estudiantes de [Carrera] en [Universidad], declaramos bajo 
-juramento que:
-
-1. Este trabajo es producto de nuestra investigación original
-2. No constituye plagio ni violación de derechos de autor
-3. Las fuentes consultadas están debidamente citadas
-4. El código desarrollado es de nuestra autoría
-5. Los datos experimentales son genuinos y verificables
-
-Firma: _________________    Firma: _________________
-Cinthia Quispe Jesús       Carlos Walter Pacheco Lora
-Fecha: 18 de junio de 2025
-```
-
-#### **⚖️ Licencia y Derechos**
-```yaml
-Licencia: MIT License (Código Abierto)
-Derechos de Autor: © 2025 Quispe & Pacheco
-Uso Académico: ✅ Libre para investigación y educación
-Uso Comercial: ✅ Permitido con atribución
-Modificación: ✅ Permitida con mantenimiento de licencia
-Distribución: ✅ Libre con inclusión de copyright
-```
-
-### 🛡️ **Consideraciones de Privacidad**
-
-#### **📹 Datos de Video**
-```yaml
-Captura: Solo procesamiento local, no almacenamiento
-Transmisión: WebSockets locales, no envío a servidores externos
-Retención: Cero persistencia de imágenes o video
-Anonimato: No identificación de personas, solo landmarks de manos
-```
-
-#### **🔐 Seguridad de Datos**
-```yaml
-Modelo IA: Entrenado con datos sintéticos y voluntarios anónimos
-Algoritmos: Sin sesgo demográfico identificado
-Acceso: Sistema completamente offline después de instalación
-Auditabilidad: Código fuente abierto para inspección
-```
-
----
 
 ## 📚 REFERENCIAS ACADÉMICAS
 
@@ -975,51 +883,6 @@ Auditabilidad: Código fuente abierto para inspección
 
 ---
 
-## 📞 CONTACTO Y SOPORTE
-
-### 👥 **Equipo de Desarrollo**
-
-#### **🎓 Quispe Jesús Cinthia**
-```yaml
-Rol: Desarrolladora Principal, Especialista en IA
-Email: cinthia.quispe@[universidad].edu
-GitHub: @cinthia-quispe
-LinkedIn: /in/cinthia-quispe
-Especialidades: Machine Learning, Computer Vision, Backend Development
-```
-
-#### **🎓 Carlos Walter Pacheco Lora**
-```yaml
-Rol: Desarrollador Principal, Especialista en Frontend
-Email: carlos.pacheco@[universidad].edu  
-GitHub: @carlos-pacheco
-LinkedIn: /in/carlos-pacheco
-Especialidades: Web Development, UI/UX, System Architecture
-```
-
-### 🏛️ **Información Institucional**
-```yaml
-Universidad: [Nombre Completo de la Universidad]
-Facultad: [Facultad de Ingeniería/Ciencias]
-Carrera: [Ingeniería de Sistemas/Ciencias de la Computación]
-Supervisor: [Nombre del Docente]
-Curso: [Nombre del Curso/Materia]
-```
-
-### 🐛 **Soporte Técnico**
-
-#### **📧 Reportar Issues**
-- **Email:** soporte.piano.virtual@[universidad].edu
-- **GitHub Issues:** [URL del repositorio]/issues
-- **Tiempo de respuesta:** 24-48 horas
-
-#### **💡 Contribuciones**
-- **Pull Requests:** Bienvenidos en GitHub
-- **Sugerencias:** Usar formulario de issues
-- **Colaboraciones:** Contactar directamente a los autores
-
----
-
 ## 📈 MÉTRICAS DE DESARROLLO
 
 ### 📊 **Estadísticas del Proyecto**
@@ -1037,289 +900,3 @@ Curso: [Nombre del Curso/Materia]
 🏆 Funcionalidades: 100% completadas según especificación inicial
 ```
 
-### 🎯 **Hitos Alcanzados**
-
-```yaml
-✅ Fase 1 (Febrero 2025): Investigación y diseño arquitectural
-✅ Fase 2 (Marzo 2025): Desarrollo del modelo de IA y dataset
-✅ Fase 3 (Abril 2025): Implementación core del sistema
-✅ Fase 4 (Mayo 2025): Integración y optimización de rendimiento  
-✅ Fase 5 (Junio 2025): Testing, documentación y presentación final
-```
-
----
-
-## 🌟 RECONOCIMIENTOS
-
-### 🏆 **Logros del Proyecto**
-- ✅ **Funcionalidad Completa:** 100% de objetivos alcanzados
-- ✅ **Innovación Técnica:** Primera implementación exitosa de este tipo
-- ✅ **Calidad Académica:** Documentación y metodología rigurosa
-- ✅ **Impacto Social:** Herramienta accesible para educación musical
-- ✅ **Código Abierto:** Contribución a la comunidad de desarrollo
-
-### 🙏 **Agradecimientos Especiales**
-
-#### **🎓 Comunidad Académica**
-- **[Nombre del Docente]** por la guía metodológica y académica
-- **[Universidad]** por proporcionar recursos e infraestructura
-- **Compañeros de clase** por feedback y testing de usuario
-
-#### **💻 Comunidad Open Source**
-- **MediaPipe Team (Google AI)** por la excelente biblioteca de detección
-- **Flask Community** por el framework web robusto y documentación
-- **OpenCV Contributors** por las herramientas de visión computacional
-- **Pygame Developers** por la síntesis de audio en tiempo real
-
-#### **🎵 Comunidad Musical**
-- **Músicos voluntarios** que participaron en el testing y validación
-- **Educadores musicales** que proporcionaron feedback pedagógico
-- **Estudiantes de música** que probaron el sistema y sugirieron mejoras
-
----
-
-## 📋 CHECKLIST DE ENTREGA
-
-### ✅ **Archivos Obligatorios Incluidos**
-
-```yaml
-📂 Código Fuente:
-  ✅ Proyecto completo en GitHub
-  ✅ Estructura modular bien organizada
-  ✅ Comentarios en código (español/inglés)
-  ✅ Requirements.txt con dependencias
-  ✅ Archivo .env con configuraciones
-
-📑 Documentación:
-  ✅ README.md completo (este archivo)
-  ✅ Artículo científico PDF
-  ✅ Documentación técnica detallada
-  ✅ Guías de instalación paso a paso
-  ✅ Manual de usuario ilustrado
-
-🎤 Presentación:
-  ✅ Slides PowerPoint/PDF
-  ✅ Guión de presentación
-  ✅ Cronometrado para 15-20 minutos
-  ✅ Incluye demo en vivo
-
-🎬 Video Demostración:
-  ✅ 5-8 minutos de duración
-  ✅ Calidad 1080p mínimo
-  ✅ Audio profesional sincronizado
-  ✅ Subtítulos explicativos
-  ✅ Muestra todas las funcionalidades
-
-🧪 Recursos Adicionales:
-  ✅ Dataset de entrenamiento
-  ✅ Modelo IA entrenado (.pkl)
-  ✅ Archivos de audio (60 WAV files)
-  ✅ Tests unitarios y de integración
-  ✅ Scripts de instalación automatizada
-```
-
-### 🎯 **Criterios de Calidad Cumplidos**
-
-```yaml
-✅ Funcionalidad Técnica:
-  - Software 100% operativo
-  - Todas las características implementadas
-  - Rendimiento según especificaciones
-  - Sin bugs críticos identificados
-
-✅ Calidad de Código:
-  - Estructura modular y organizada
-  - Código comentado y documentado
-  - Estándares de programación seguidos
-  - Manejo de errores implementado
-
-✅ Documentación Académica:
-  - Metodología científica rigurosa
-  - Referencias bibliográficas apropiadas
-  - Resultados respaldados por datos
-  - Conclusiones fundamentadas
-
-✅ Presentación Profesional:
-  - Interfaz de usuario pulida
-  - Experiencia de usuario intuitiva
-  - Materiales de presentación profesionales
-  - Demo funcional y convincente
-```
-
----
-
-## 🔮 PERSPECTIVAS FUTURAS
-
-### 🚀 **Roadmap de Desarrollo**
-
-#### **📅 Corto Plazo (3-6 meses)**
-```yaml
-🎯 Optimizaciones Inmediatas:
-  - Mejora de precisión a 98%+
-  - Reducción de latencia a <100ms
-  - Soporte para más navegadores
-  - Optimización para dispositivos móviles
-
-🎵 Extensiones Musicales:
-  - Integración con otros instrumentos virtuales
-  - Soporte para escalas no occidentales
-  - Implementación de efectos de audio
-  - Grabación y exportación MIDI
-```
-
-#### **📅 Mediano Plazo (6-12 meses)**
-```yaml
-🤖 Avances en IA:
-  - Redes neuronales más profundas
-  - Reconocimiento de gestos bi-manuales complejos
-  - Adaptación personalizada por usuario
-  - IA generativa para acompañamiento
-
-🌐 Funcionalidades Colaborativas:
-  - Modo multi-usuario en tiempo real
-  - Integración con plataformas educativas
-  - Sistema de logros y gamificación
-  - Comunidad de usuarios y contenido
-```
-
-#### **📅 Largo Plazo (1-2 años)**
-```yaml
-🥽 Tecnologías Emergentes:
-  - Realidad aumentada para visualización 3D
-  - Integración con dispositivos IoT
-  - Análisis predictivo de patrones musicales
-  - Interfaz de voz para control por comandos
-
-🏢 Comercialización:
-  - Licenciamiento para instituciones educativas
-  - Desarrollo de APIs para terceros
-  - Versiones especializadas por mercado
-  - Expansión internacional multiidioma
-```
-
-### 🎓 **Impacto Académico Esperado**
-
-#### **📚 Publicaciones Futuras**
-- Artículo en conferencia internacional de HCI
-- Paper en journal de Computer Vision
-- Capítulo en libro de interfaces musicales
-- Presentación en congresos de ingeniería
-
-#### **🔬 Líneas de Investigación Derivadas**
-- Interfaces gestuales para otros dominios
-- Aplicaciones de IA en educación musical
-- Sistemas multimodales de interacción
-- Accesibilidad tecnológica universal
-
----
-
-## 📜 LICENCIA Y TÉRMINOS DE USO
-
-### 📄 **Licencia MIT - Texto Completo**
-
-```
-MIT License
-
-Copyright (c) 2025 Quispe Jesús Cinthia, Carlos Walter Pacheco Lora
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-### ⚖️ **Términos de Uso Académico**
-
-#### **✅ Usos Permitidos**
-- Investigación académica y educativa
-- Modificación y mejora del código
-- Distribución con atribución apropiada
-- Uso comercial con mantenimiento de licencia
-- Integración en proyectos más grandes
-
-#### **📋 Atribución Requerida**
-```
-Al usar este software, debe incluir la siguiente atribución:
-
-"Piano Virtual MEJORADO - Reconocimiento de Gestos Musicales
-Desarrollado por Quispe Jesús Cinthia y Carlos Walter Pacheco Lora
-Universidad: [Nombre], Año: 2025
-Disponible en: [URL del repositorio]"
-```
-
-#### **🚫 Restricciones**
-- No remover los créditos de autoría original
-- No reclamar autoría del trabajo base
-- Mantener la licencia MIT en derivados
-- Reportar mejoras significativas a los autores originales
-
----
-
-## 🏁 DECLARACIÓN FINAL
-
-### 🎯 **Resumen de Logros**
-
-Este proyecto representa la **culminación exitosa** de una investigación rigurosa en el campo de **interfaces musicales digitales** utilizando **visión por computadora** e **inteligencia artificial**. Hemos logrado desarrollar un sistema completamente funcional que:
-
-- ✅ **Demuestra viabilidad técnica** del reconocimiento gestual musical
-- ✅ **Alcanza métricas profesionales** (96.8% precisión, 132ms latencia)
-- ✅ **Proporciona funcionalidad musical real** con interpretación de melodías
-- ✅ **Democratiza el acceso** a herramientas musicales digitales
-- ✅ **Contribuye al conocimiento científico** con metodología rigurosa
-
-### 🌟 **Valor e Impacto**
-
-El **Piano Virtual MEJORADO** trasciende ser simplemente un proyecto académico para convertirse en una **herramienta práctica** con **impacto social real**. Su capacidad para proporcionar acceso musical sin barreras económicas lo posiciona como una **contribución significativa** al campo de la **educación musical inclusiva** y la **accesibilidad tecnológica**.
-
-### 🎓 **Crecimiento Académico**
-
-Esta investigación ha representado un **desafío multidisciplinario** que nos ha permitido integrar conocimientos de:
-- **Inteligencia Artificial** y Machine Learning
-- **Visión por Computadora** y procesamiento de imágenes
-- **Desarrollo Web** full-stack moderno
-- **Síntesis de Audio** en tiempo real
-- **Metodología de investigación** científica
-- **Diseño de interfaces** de usuario
-
-### 🚀 **Compromiso Futuro**
-
-Nos comprometemos a **continuar el desarrollo** de este proyecto más allá del ámbito académico, buscando oportunidades para:
-- **Publicar resultados** en conferencias internacionales
-- **Colaborar con instituciones educativas** para implementación práctica
-- **Mantener el código abierto** para beneficio de la comunidad
-- **Mentorear futuros estudiantes** interesados en esta línea de investigación
-
-### 🙏 **Agradecimiento Final**
-
-Agradecemos profundamente a **[Universidad]**, **[Docente Supervisor]** y toda la **comunidad académica** que ha hecho posible este proyecto. Esperamos que nuestro trabajo inspire a **futuras generaciones** de estudiantes a explorar la intersección entre **tecnología** y **arte**, demostrando que la **innovación verdadera** surge cuando la **rigurosidad científica** se encuentra con la **creatividad humana**.
-
----
-
-<div align="center">
-
-### 🎹 **¡Gracias por acompañarnos en este viaje musical y tecnológico!** 🎵
-
-**Quispe Jesús Cinthia** & **Carlos Walter Pacheco Lora**
-
-*Junio 2025 - [Universidad]*
-
-[![GitHub](https://img.shields.io/badge/GitHub-Proyecto-blue?style=for-the-badge&logo=github)](https://github.com/[usuario]/piano-virtual-mejorado)
-[![Demo](https://img.shields.io/badge/Demo-En_Vivo-green?style=for-the-badge&logo=play)](http://127.0.0.1:5000)
-[![Docs](https://img.shields.io/badge/Docs-Completa-orange?style=for-the-badge&logo=book)](docs/)
-
----
-
-*"La música es el lenguaje universal de la humanidad. La tecnología es nuestra forma de democratizar ese lenguaje."*
